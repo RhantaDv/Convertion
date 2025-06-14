@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FileConvert Pro - Gelişmiş QR Tasarımcısı</title>
+    <title>FileConvert Pro+ - Gelişmiş Online Dönüştürücü</title>
     
     <!-- Kütüphaneler -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
@@ -43,9 +43,9 @@
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            width: 380px;
+            width: 320px;
             z-index: 1000;
-            transform: translateX(400px);
+            transform: translateX(340px);
             transition: transform 0.3s ease;
             max-height: 90vh;
             overflow-y: auto;
@@ -102,38 +102,6 @@
             font-size: 0.8rem;
         }
 
-        .qr-tabs {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .qr-tab {
-            flex: 1;
-            padding: 10px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            color: #666;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .qr-tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-            font-weight: bold;
-        }
-
-        .qr-tab-content {
-            display: none;
-        }
-
-        .qr-tab-content.active {
-            display: block;
-        }
-
         .qr-input-group {
             margin-bottom: 15px;
         }
@@ -165,79 +133,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-bottom: 15px;
-        }
-
-        /* QR Şekil Seçenekleri */
-        .shape-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .shape-option {
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 10px 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        .shape-option.active {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-        }
-
-        .shape-option:hover {
-            border-color: #667eea;
-        }
-
-        /* Renk Gradyan Seçenekleri */
-        .gradient-selector {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .gradient-option {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s ease;
-        }
-
-        .gradient-option.active {
-            border-color: #667eea;
-            transform: scale(1.1);
-        }
-
-        /* Özel desenler */
-        .pattern-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .pattern-option {
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 15px 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        .pattern-option.active {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
         }
 
         .qr-generate-btn {
@@ -393,7 +288,57 @@
             font-size: 0.9rem;
         }
 
-        /* Diğer stiller (önceki koddan devam) */
+        /* File converter seçenekleri */
+        .converter-options {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .converter-options h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .option-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .option-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .option-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .option-desc {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Dosya listesi ve diğer stiller */
         .file-list {
             margin: 20px 0;
             display: none;
@@ -418,6 +363,18 @@
 
         .file-icon {
             font-size: 1.5rem;
+        }
+
+        .file-details h4 {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .file-details p {
+            margin: 5px 0 0 0;
+            font-size: 0.8rem;
+            color: #666;
         }
 
         .remove-file {
@@ -456,20 +413,6 @@
             color: #667eea;
         }
 
-        .convert-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            width: 100%;
-            margin-top: 20px;
-        }
-
         .progress-container {
             display: none;
             margin: 20px 0;
@@ -489,6 +432,37 @@
             background: linear-gradient(90deg, #667eea, #764ba2);
             width: 0%;
             transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .convert-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .convert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .convert-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .results-container {
@@ -529,8 +503,8 @@
         /* Responsive */
         @media (max-width: 768px) {
             .qr-generator {
-                width: 350px;
-                transform: translateX(370px);
+                width: 280px;
+                transform: translateX(300px);
             }
             
             .format-selector {
@@ -541,170 +515,109 @@
             .main-converter {
                 padding: 20px;
             }
+
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animasyonlar */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .converting {
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
 <body>
     <!-- QR Kod Toggle Button -->
-    <button class="qr-toggle" onclick="toggleQR()">🎨</button>
+    <button class="qr-toggle" onclick="toggleQR()">📱</button>
 
-    <!-- QR Kod Tasarımcısı -->
+    <!-- QR Kod Oluşturucu -->
     <div class="qr-generator" id="qrGenerator">
         <div class="qr-header">
-            <div class="qr-title">🎨 QR Kod Tasarımcısı</div>
+            <div class="qr-title">📱 QR Kod Oluşturucu</div>
             <button class="qr-close" onclick="toggleQR()">×</button>
         </div>
 
-        <!-- Tab Navigation -->
-        <div class="qr-tabs">
-            <button class="qr-tab active" onclick="switchTab('basic')">Temel</button>
-            <button class="qr-tab" onclick="switchTab('design')">Tasarım</button>
-            <button class="qr-tab" onclick="switchTab('advanced')">Gelişmiş</button>
+        <div class="qr-input-group">
+            <label>Metin/URL:</label>
+            <textarea class="qr-input" id="qrText" placeholder="QR koda dönüştürülecek metin veya URL girin..." rows="3"></textarea>
         </div>
 
-        <!-- Temel Tab -->
-        <div class="qr-tab-content active" id="basic">
-            <div class="qr-input-group">
-                <label>Metin/URL:</label>
-                <textarea class="qr-input" id="qrText" placeholder="QR koda dönüştürülecek metin veya URL girin..." rows="3"></textarea>
+        <div class="qr-input-group">
+            <label>Logo Ekle (Opsiyonel):</label>
+            <div class="logo-upload" id="logoUpload" onclick="document.getElementById('logoInput').click()">
+                <div id="logoUploadText">📷 Logo Seç</div>
+                <img id="logoPreview" class="logo-preview" style="display: none;">
+                <button id="removeLogo" class="remove-logo" style="display: none;" onclick="removeLogo(event)">Kaldır</button>
             </div>
+            <input type="file" id="logoInput" accept="image/*" style="display: none;" onchange="previewLogo(this)">
+        </div>
 
-            <div class="qr-options">
-                <div class="qr-input-group">
-                    <label>Boyut:</label>
-                    <select class="qr-input" id="qrSize">
-                        <option value="200">200x200</option>
-                        <option value="300" selected>300x300</option>
-                        <option value="400">400x400</option>
-                        <option value="500">500x500</option>
-                    </select>
-                </div>
-                <div class="qr-input-group">
-                    <label>Hata Düzeltme:</label>
-                    <select class="qr-input" id="errorCorrection">
-                        <option value="L">Düşük (%7)</option>
-                        <option value="M" selected>Orta (%15)</option>
-                        <option value="Q">Yüksek (%25)</option>
-                        <option value="H">En Yüksek (%30)</option>
-                    </select>
-                </div>
+        <div class="qr-options">
+            <div class="qr-input-group">
+                <label>Boyut:</label>
+                <select class="qr-input" id="qrSize">
+                    <option value="200">200x200</option>
+                    <option value="300" selected>300x300</option>
+                    <option value="400">400x400</option>
+                    <option value="500">500x500</option>
+                </select>
+            </div>
+            <div class="qr-input-group">
+                <label>Renk:</label>
+                <input type="color" class="qr-input" id="qrColor" value="#000000">
             </div>
         </div>
 
-        <!-- Tasarım Tab -->
-        <div class="qr-tab-content" id="design">
-            <div class="qr-input-group">
-                <label>QR Şekli:</label>
-                <div class="shape-selector">
-                    <div class="shape-option active" data-shape="square">
-                        <div>⬛</div>
-                        <div>Kare</div>
-                    </div>
-                    <div class="shape-option" data-shape="circle">
-                        <div>⚫</div>
-                        <div>Daire</div>
-                    </div>
-                    <div class="shape-option" data-shape="rounded">
-                        <div>🔳</div>
-                        <div>Yuvarla.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qr-input-group">
-                <label>Renk Stili:</label>
-                <div class="gradient-selector">
-                    <div class="gradient-option active" data-gradient="solid" style="background: #000;"></div>
-                    <div class="gradient-option" data-gradient="blue" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
-                    <div class="gradient-option" data-gradient="rainbow" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93f);"></div>
-                    <div class="gradient-option" data-gradient="sunset" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);"></div>
-                    <div class="gradient-option" data-gradient="ocean" style="background: linear-gradient(45deg, #2193b0, #6dd5ed);"></div>
-                    <div class="gradient-option" data-gradient="forest" style="background: linear-gradient(45deg, #134e5e, #71b280);"></div>
-                    <div class="gradient-option" data-gradient="fire" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);"></div>
-                    <div class="gradient-option" data-gradient="galaxy" style="background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);"></div>
-                </div>
-            </div>
-
-            <div class="qr-input-group">
-                <label>Özel Renk:</label>
-                <input type="color" class="qr-input" id="customColor" value="#000000">
-            </div>
-
-            <div class="qr-input-group">
-                <label>Arka Plan Rengi:</label>
-                <input type="color" class="qr-input" id="backgroundColor" value="#ffffff">
-            </div>
-        </div>
-
-        <!-- Gelişmiş Tab -->
-        <div class="qr-tab-content" id="advanced">
-            <div class="qr-input-group">
-                <label>Desen Stili:</label>
-                <div class="pattern-selector">
-                    <div class="pattern-option active" data-pattern="normal">
-                        <div>⬛⬛</div>
-                        <div>Normal</div>
-                    </div>
-                    <div class="pattern-option" data-pattern="dots">
-                        <div>⚫⚫</div>
-                        <div>Nokta</div>
-                    </div>
-                    <div class="pattern-option" data-pattern="rounded">
-                        <div>🔘🔘</div>
-                        <div>Yuvarla.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="qr-input-group">
-                <label>Logo Ekle:</label>
-                <div class="logo-upload" id="logoUpload" onclick="document.getElementById('logoInput').click()">
-                    <div id="logoUploadText">📷 Logo Seç</div>
-                    <img id="logoPreview" class="logo-preview" style="display: none;">
-                    <button id="removeLogo" class="remove-logo" style="display: none;" onclick="removeLogo(event)">Kaldır</button>
-                </div>
-                <input type="file" id="logoInput" accept="image/*" style="display: none;" onchange="previewLogo(this)">
-            </div>
-
-            <div class="qr-options">
-                <div class="qr-input-group">
-                    <label>Logo Boyutu:</label>
-                    <select class="qr-input" id="logoSize">
-                        <option value="0.1">Küçük (%10)</option>
-                        <option value="0.15" selected>Orta (%15)</option>
-                        <option value="0.2">Büyük (%20)</option>
-                        <option value="0.25">Çok Büyük (%25)</option>
-                    </select>
-                </div>
-                <div class="qr-input-group">
-                    <label>Kenar Kalınlığı:</label>
-                    <select class="qr-input" id="margin">
-                        <option value="1">İnce</option>
-                        <option value="2" selected>Normal</option>
-                        <option value="3">Kalın</option>
-                        <option value="4">Çok Kalın</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <button class="qr-generate-btn" onclick="generateAdvancedQR()">🎨 Tasarımı Oluştur</button>
+        <button class="qr-generate-btn" onclick="generateQR()">🔄 QR Kod Oluştur</button>
 
         <div class="qr-result" id="qrResult" style="display: none;">
             <div class="qr-display" id="qrDisplay"></div>
             <br>
             <button class="qr-download" onclick="downloadQR()">📥 PNG İndir</button>
             <button class="qr-download" onclick="downloadQRSVG()">📥 SVG İndir</button>
-            <button class="qr-download" onclick="shareQR()">📤 Paylaş</button>
         </div>
     </div>
 
     <div class="container">
         <header>
             <div class="logo">⚡ FileConvert Pro+</div>
-            <div class="subtitle">AI Tarzı QR Tasarımcısı + Offline Dönüştürücü</div>
-            <div class="offline-badge">🎨 Sanatsal QR Kodlar Oluşturun</div>
+            <div class="subtitle">Devoped by Rhanta</div>
+            <div class="offline-badge">🔒 Tamamen Online- Gizlilik Garantili</div>
         </header>
+
+        <!-- Converter Options -->
+        <div class="converter-options">
+            <h3>🛠️ Dönüştürme Seçenekleri</h3>
+            <div class="option-grid">
+                <div class="option-card">
+                    <div class="option-icon">📄</div>
+                    <div class="option-title">Döküman</div>
+                    <div class="option-desc">PDF, TXT, DOCX, CSV, JSON</div>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">🖼️</div>
+                    <div class="option-title">Görsel</div>
+                    <div class="option-desc">JPG, PNG, WebP, BMP, GIF</div>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">🎵</div>
+                    <div class="option-title">Ses</div>
+                    <div class="option-desc">MP3, WAV, OGG, M4A</div>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon">📦</div>
+                    <div class="option-title">Arşiv</div>
+                    <div class="option-desc">ZIP, RAR Oluşturma</div>
+                </div>
+            </div>
+        </div>
 
         <div class="main-converter">
             <div class="upload-area" id="uploadArea">
@@ -717,6 +630,7 @@
             </div>
 
             <div class="error-message" id="errorMessage"></div>
+
             <div class="file-list" id="fileList"></div>
 
             <div class="format-selector">
@@ -727,14 +641,27 @@
                     <optgroup label="📄 Döküman">
                         <option value="pdf">PDF</option>
                         <option value="txt">TXT</option>
+                        <option value="docx">DOCX</option>
                     </optgroup>
                     <optgroup label="🖼️ Görsel">
                         <option value="jpg">JPG</option>
                         <option value="png">PNG</option>
                         <option value="webp">WebP</option>
+                        <option value="bmp">BMP</option>
+                        <option value="gif">GIF</option>
+                    </optgroup>
+                    <optgroup label="🎵 Ses">
+                        <option value="mp3">MP3</option>
+                        <option value="wav">WAV</option>
+                        <option value="ogg">OGG</option>
+                        <option value="m4a">M4A</option>
                     </optgroup>
                     <optgroup label="📦 Arşiv">
                         <option value="zip">ZIP</option>
+                    </optgroup>
+                    <optgroup label="💾 Veri">
+                        <option value="json">JSON</option>
+                        <option value="csv">CSV</option>
                     </optgroup>
                 </select>
             </div>
@@ -760,56 +687,30 @@
         let isConverting = false;
         let qrLogoImage = null;
         let currentQRCode = null;
-        let selectedShape = 'square';
-        let selectedGradient = 'solid';
-        let selectedPattern = 'normal';
+
+        // DOM elementleri
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileList = document.getElementById('fileList');
+        const convertBtn = document.getElementById('convertBtn');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Event Listeners
+        uploadArea.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', handleFileSelection);
+        uploadArea.addEventListener('dragover', handleDragOver);
+        uploadArea.addEventListener('dragleave', handleDragLeave);
+        uploadArea.addEventListener('drop', handleDrop);
 
         // QR Kod Fonksiyonları
         function toggleQR() {
             const qrGenerator = document.getElementById('qrGenerator');
             qrGenerator.classList.toggle('active');
         }
-
-        function switchTab(tabName) {
-            // Tab butonlarını güncelle
-            document.querySelectorAll('.qr-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // Tab içeriklerini güncelle
-            document.querySelectorAll('.qr-tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById(tabName).classList.add('active');
-        }
-
-        // Shape seçim
-        document.querySelectorAll('.shape-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.shape-option').forEach(o => o.classList.remove('active'));
-                this.classList.add('active');
-                selectedShape = this.dataset.shape;
-            });
-        });
-
-        // Gradient seçim
-        document.querySelectorAll('.gradient-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.gradient-option').forEach(o => o.classList.remove('active'));
-                this.classList.add('active');
-                selectedGradient = this.dataset.gradient;
-            });
-        });
-
-        // Pattern seçim
-        document.querySelectorAll('.pattern-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.pattern-option').forEach(o => o.classList.remove('active'));
-                this.classList.add('active');
-                selectedPattern = this.dataset.pattern;
-            });
-        });
 
         function previewLogo(input) {
             if (input.files && input.files[0]) {
@@ -822,7 +723,7 @@
                     
                     preview.src = e.target.result;
                     preview.style.display = 'block';
-                    uploadText.textContent = 'Logo seçildi ✓';
+                    uploadText.textContent = 'Logo seçildi';
                     removeBtn.style.display = 'inline-block';
                     logoUpload.classList.add('has-logo');
                     qrLogoImage = e.target.result;
@@ -848,14 +749,10 @@
             qrLogoImage = null;
         }
 
-        function generateAdvancedQR() {
+        function generateQR() {
             const text = document.getElementById('qrText').value.trim();
             const size = parseInt(document.getElementById('qrSize').value);
-            const errorLevel = document.getElementById('errorCorrection').value;
-            const customColor = document.getElementById('customColor').value;
-            const backgroundColor = document.getElementById('backgroundColor').value;
-            const logoSizeRatio = parseFloat(document.getElementById('logoSize').value);
-            const margin = parseInt(document.getElementById('margin').value);
+            const color = document.getElementById('qrColor').value;
             
             if (!text) {
                 alert('Lütfen QR kod için metin girin!');
@@ -864,7 +761,7 @@
 
             try {
                 // QR kod oluştur
-                const qr = qrcode(0, errorLevel);
+                const qr = qrcode(0, 'M');
                 qr.addData(text);
                 qr.make();
                 
@@ -872,26 +769,49 @@
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
                 const moduleCount = qr.getModuleCount();
-                const cellSize = size / (moduleCount + 2 * margin);
+                const cellSize = size / moduleCount;
                 
                 canvas.width = size;
                 canvas.height = size;
                 
-                // Arka plan
-                ctx.fillStyle = backgroundColor;
+                // Beyaz arka plan
+                ctx.fillStyle = '#FFFFFF';
                 ctx.fillRect(0, 0, size, size);
                 
-                // QR modüllerini çiz
-                drawQRModules(ctx, qr, moduleCount, cellSize, margin, customColor);
+                // QR kod çiz
+                ctx.fillStyle = color;
+                for (let row = 0; row < moduleCount; row++) {
+                    for (let col = 0; col < moduleCount; col++) {
+                        if (qr.isDark(row, col)) {
+                            ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                        }
+                    }
+                }
                 
                 // Logo ekle
                 if (qrLogoImage) {
-                    addLogoToQR(ctx, size, logoSizeRatio);
+                    const logoImg = new Image();
+                    logoImg.onload = function() {
+                        const logoSize = size * 0.15; // QR kodun %15'i kadar
+                        const logoX = (size - logoSize) / 2;
+                        const logoY = (size - logoSize) / 2;
+                        
+                        // Logo için beyaz arka plan
+                        ctx.fillStyle = '#FFFFFF';
+                        ctx.fillRect(logoX - 8, logoY - 8, logoSize + 16, logoSize + 16);
+                        
+                        // Logo çiz
+                        ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
+                        
+                        // Sonucu göster
+                        showQRResult(canvas);
+                    };
+                    logoImg.src = qrLogoImage;
                 } else {
                     showQRResult(canvas);
                 }
                 
-                currentQRCode = { canvas, text, size };
+                currentQRCode = { canvas, text, size, color };
                 
             } catch (error) {
                 console.error('QR kod hatası:', error);
@@ -899,118 +819,11 @@
             }
         }
 
-        function drawQRModules(ctx, qr, moduleCount, cellSize, margin, color) {
-            const gradients = {
-                solid: color,
-                blue: createGradient(ctx, 0, 0, 300, 300, ['#667eea', '#764ba2']),
-                rainbow: createGradient(ctx, 0, 0, 300, 300, ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96c93f']),
-                sunset: createGradient(ctx, 0, 0, 300, 300, ['#ff9a9e', '#fecfef']),
-                ocean: createGradient(ctx, 0, 0, 300, 300, ['#2193b0', '#6dd5ed']),
-                forest: createGradient(ctx, 0, 0, 300, 300, ['#134e5e', '#71b280']),
-                fire: createGradient(ctx, 0, 0, 300, 300, ['#ff6b6b', '#ee5a24']),
-                galaxy: createGradient(ctx, 0, 0, 300, 300, ['#667eea', '#764ba2', '#f093fb'])
-            };
-
-            ctx.fillStyle = gradients[selectedGradient] || color;
-
-            for (let row = 0; row < moduleCount; row++) {
-                for (let col = 0; col < moduleCount; col++) {
-                    if (qr.isDark(row, col)) {
-                        const x = (col + margin) * cellSize;
-                        const y = (row + margin) * cellSize;
-                        
-                        drawModule(ctx, x, y, cellSize, selectedShape, selectedPattern);
-                    }
-                }
-            }
-        }
-
-        function createGradient(ctx, x1, y1, x2, y2, colors) {
-            const gradient = ctx.createLinearGradient(x1, y1, x2, y2);
-            colors.forEach((color, index) => {
-                gradient.addColorStop(index / (colors.length - 1), color);
-            });
-            return gradient;
-        }
-
-        function drawModule(ctx, x, y, size, shape, pattern) {
-            ctx.save();
-            
-            switch (shape) {
-                case 'circle':
-                    ctx.beginPath();
-                    ctx.arc(x + size/2, y + size/2, size/2 * 0.8, 0, 2 * Math.PI);
-                    ctx.fill();
-                    break;
-                    
-                case 'rounded':
-                    const radius = size * 0.2;
-                    ctx.beginPath();
-                    ctx.roundRect(x, y, size, size, radius);
-                    ctx.fill();
-                    break;
-                    
-                default: // square
-                    if (pattern === 'dots') {
-                        ctx.beginPath();
-                        ctx.arc(x + size/2, y + size/2, size/3, 0, 2 * Math.PI);
-                        ctx.fill();
-                    } else {
-                        ctx.fillRect(x, y, size, size);
-                    }
-                    break;
-            }
-            
-            ctx.restore();
-        }
-
-        // RoundRect polyfill
-        if (!CanvasRenderingContext2D.prototype.roundRect) {
-            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
-                this.beginPath();
-                this.moveTo(x + radius, y);
-                this.lineTo(x + width - radius, y);
-                this.quadraticCurveTo(x + width, y, x + width, y + radius);
-                this.lineTo(x + width, y + height - radius);
-                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-                this.lineTo(x + radius, y + height);
-                this.quadraticCurveTo(x, y + height, x, y + height - radius);
-                this.lineTo(x, y + radius);
-                this.quadraticCurveTo(x, y, x + radius, y);
-                this.closePath();
-            };
-        }
-
-        function addLogoToQR(ctx, size, logoSizeRatio) {
-            const logoImg = new Image();
-            logoImg.onload = function() {
-                const logoSize = size * logoSizeRatio;
-                const logoX = (size - logoSize) / 2;
-                const logoY = (size - logoSize) / 2;
-                
-                // Logo için beyaz arka plan (yuvarlatılmış)
-                ctx.fillStyle = '#FFFFFF';
-                ctx.beginPath();
-                ctx.roundRect(logoX - 8, logoY - 8, logoSize + 16, logoSize + 16, 8);
-                ctx.fill();
-                
-                // Logo çiz (yuvarlatılmış köşeler)
-                ctx.save();
-                ctx.beginPath();
-                ctx.roundRect(logoX, logoY, logoSize, logoSize, 6);
-                ctx.clip();
-                ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
-                ctx.restore();
-                
-                showQRResult(ctx.canvas);
-            };
-            logoImg.src = qrLogoImage;
-        }
-
         function showQRResult(canvas) {
             const qrDisplay = document.getElementById('qrDisplay');
             const qrResult = document.getElementById('qrResult');
             
+            // Mevcut canvas'ı temizle
             qrDisplay.innerHTML = '';
             qrDisplay.appendChild(canvas);
             
@@ -1025,50 +838,110 @@
             
             const canvas = currentQRCode.canvas;
             const link = document.createElement('a');
-            link.download = 'artistic-qr-code.png';
+            link.download = 'qr-code.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
         }
 
         function downloadQRSVG() {
-            alert('SVG indirme özelliği geliştirilmekte...');
-        }
-
-        function shareQR() {
             if (!currentQRCode) {
                 alert('Önce QR kod oluşturun!');
                 return;
             }
             
-            if (navigator.share) {
-                currentQRCode.canvas.toBlob((blob) => {
-                    const file = new File([blob], 'qr-code.png', { type: 'image/png' });
-                    navigator.share({
-                        title: 'Sanatsal QR Kod',
-                        text: 'FileConvert Pro ile oluşturuldu',
-                        files: [file]
-                    });
-                });
-            } else {
-                // Fallback: kopyala
-                currentQRCode.canvas.toBlob((blob) => {
-                    navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
-                        .then(() => alert('QR kod panoya kopyalandı!'))
-                        .catch(() => alert('Paylaşım desteklenmiyor, indirme kullanın.'));
-                });
+            const text = document.getElementById('qrText').value.trim();
+            const size = parseInt(document.getElementById('qrSize').value);
+            const color = document.getElementById('qrColor').value;
+            
+            try {
+                const qr = qrcode(0, 'M');
+                qr.addData(text);
+                qr.make();
+                
+                const moduleCount = qr.getModuleCount();
+                const cellSize = size / moduleCount;
+                
+                let svg = `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">`;
+                svg += `<rect width="${size}" height="${size}" fill="#FFFFFF"/>`;
+                
+                for (let row = 0; row < moduleCount; row++) {
+                    for (let col = 0; col < moduleCount; col++) {
+                        if (qr.isDark(row, col)) {
+                            svg += `<rect x="${col * cellSize}" y="${row * cellSize}" width="${cellSize}" height="${cellSize}" fill="${color}"/>`;
+                        }
+                    }
+                }
+                
+                svg += '</svg>';
+                
+                const blob = new Blob([svg], { type: 'image/svg+xml' });
+                const link = document.createElement('a');
+                link.download = 'qr-code.svg';
+                link.href = URL.createObjectURL(blob);
+                link.click();
+                
+            } catch (error) {
+                alert('SVG oluşturulurken hata: ' + error.message);
             }
         }
 
-        // Dosya işleme fonksiyonları (basitleştirilmiş)
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-
-        uploadArea.addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', handleFileSelection);
-
+        // Dosya İşleme Fonksiyonları (önceki koddan aynı)
         function handleFileSelection(e) {
             const files = Array.from(e.target.files);
-            selectedFiles = files;
+            addFilesToList(files);
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            addFilesToList(files);
+        }
+
+        function addFilesToList(files) {
+            files.forEach(file => {
+                if (!selectedFiles.find(f => f.name === file.name)) {
+                    selectedFiles.push(file);
+                }
+            });
+            updateFileList();
+            updateUploadText();
+        }
+
+        function updateFileList() {
+            if (selectedFiles.length === 0) {
+                fileList.style.display = 'none';
+                return;
+            }
+
+            fileList.style.display = 'block';
+            fileList.innerHTML = selectedFiles.map((file, index) => `
+                <div class="file-item">
+                    <div class="file-info">
+                        <div class="file-icon">${getFileIcon(file.type)}</div>
+                        <div class="file-details">
+                            <h4>${file.name}</h4>
+                            <p>${formatFileSize(file.size)} - ${getFileExtension(file.name).toUpperCase()}</p>
+                        </div>
+                    </div>
+                    <button class="remove-file" onclick="removeFile(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            updateFileList();
             updateUploadText();
         }
 
@@ -1081,9 +954,348 @@
             }
         }
 
-        function startConversion() {
-            alert('Dosya dönüştürme özelliği aktif! (Demo)');
+        function getFileIcon(mimeType) {
+            if (mimeType.startsWith('image/')) return '🖼️';
+            if (mimeType.startsWith('video/')) return '🎬';
+            if (mimeType.startsWith('audio/')) return '🎵';
+            if (mimeType.includes('pdf')) return '📄';
+            if (mimeType.includes('text')) return '📝';
+            if (mimeType.includes('json')) return '📊';
+            if (mimeType.includes('csv')) return '📈';
+            return '📎';
         }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function getFileExtension(filename) {
+            return filename.split('.').pop().toLowerCase();
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // Dönüştürme Fonksiyonları
+        async function startConversion() {
+            if (selectedFiles.length === 0) {
+                showError('Lütfen önce dosya seçin!');
+                return;
+            }
+
+            const targetFormat = document.getElementById('toFormat').value;
+            if (!targetFormat) {
+                showError('Lütfen hedef format seçin!');
+                return;
+            }
+
+            if (isConverting) return;
+
+            isConverting = true;
+            convertBtn.disabled = true;
+            convertBtn.textContent = '🔄 Dönüştürülüyor...';
+            showProgress();
+            clearResults();
+
+            try {
+                await processFiles(selectedFiles, targetFormat);
+            } catch (error) {
+                console.error('Dönüştürme hatası:', error);
+                showError('Dönüştürme sırasında bir hata oluştu: ' + error.message);
+            } finally {
+                isConverting = false;
+                convertBtn.disabled = false;
+                convertBtn.textContent = '🔄 Dönüştürmeyi Başlat';
+                hideProgress();
+            }
+        }
+
+        async function processFiles(files, targetFormat) {
+            const totalFiles = files.length;
+
+            for (let i = 0; i < totalFiles; i++) {
+                const file = files[i];
+                const sourceFormat = getFileExtension(file.name);
+                
+                updateProgress((i / totalFiles) * 100, `${file.name} dönüştürülüyor...`);
+
+                try {
+                    let convertedBlob = null;
+                    let newFileName = file.name.replace(/\.[^/.]+$/, `.${targetFormat}`);
+
+                    switch (targetFormat) {
+                        case 'pdf':
+                            convertedBlob = await convertToPDF(file, sourceFormat);
+                            break;
+                        case 'txt':
+                            convertedBlob = await convertToText(file, sourceFormat);
+                            break;
+                        case 'jpg':
+                            convertedBlob = await convertToImage(file, 'jpeg');
+                            break;
+                        case 'png':
+                            convertedBlob = await convertToImage(file, 'png');
+                            break;
+                        case 'webp':
+                            convertedBlob = await convertToImage(file, 'webp');
+                            break;
+                        case 'zip':
+                            convertedBlob = await createZipFromFiles(files);
+                            newFileName = 'converted_files.zip';
+                            break;
+                        case 'json':
+                            convertedBlob = await convertToJSON(file, sourceFormat);
+                            break;
+                        case 'csv':
+                            convertedBlob = await convertToCSV(file, sourceFormat);
+                            break;
+                        default:
+                            throw new Error(`${targetFormat} formatı henüz desteklenmiyor`);
+                    }
+
+                    if (convertedBlob) {
+                        addResult(newFileName, convertedBlob);
+                    }
+
+                    if (targetFormat === 'zip') break;
+
+                } catch (error) {
+                    console.error(`${file.name} dönüştürme hatası:`, error);
+                    showError(`${file.name}: ${error.message}`);
+                }
+            }
+
+            updateProgress(100, 'Dönüştürme tamamlandı!');
+            showResults();
+        }
+
+        // Dönüştürme fonksiyonları (önceki koddan aynı)
+        async function convertToPDF(file, sourceFormat) {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            if (sourceFormat === 'txt') {
+                const text = await file.text();
+                const lines = pdf.splitTextToSize(text, 180);
+                let y = 20;
+                
+                lines.forEach(line => {
+                    if (y > 280) {
+                        pdf.addPage();
+                        y = 20;
+                    }
+                    pdf.text(line, 20, y);
+                    y += 7;
+                });
+            } 
+            else if (file.type.startsWith('image/')) {
+                const imageData = await fileToBase64(file);
+                const img = new Image();
+                
+                return new Promise((resolve) => {
+                    img.onload = function() {
+                        const pdfWidth = 210;
+                        const pdfHeight = 297;
+                        const imgRatio = img.width / img.height;
+                        
+                        let width = pdfWidth - 20;
+                        let height = width / imgRatio;
+                        
+                        if (height > pdfHeight - 20) {
+                            height = pdfHeight - 20;
+                            width = height * imgRatio;
+                        }
+                        
+                        pdf.addImage(imageData, 'JPEG', 10, 10, width, height);
+                        resolve(pdf.output('blob'));
+                    };
+                    img.src = imageData;
+                });
+            }
+            
+            return pdf.output('blob');
+        }
+
+        async function convertToText(file, sourceFormat) {
+            if (sourceFormat === 'json') {
+                const jsonText = await file.text();
+                const jsonData = JSON.parse(jsonText);
+                return new Blob([JSON.stringify(jsonData, null, 2)], { type: 'text/plain' });
+            }
+            
+            const text = await file.text();
+            return new Blob([text], { type: 'text/plain' });
+        }
+
+        async function convertToImage(file, format) {
+            if (!file.type.startsWith('image/')) {
+                throw new Error('Sadece görsel dosyaları bu formata dönüştürülebilir');
+            }
+
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+
+                img.onload = function() {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    
+                    if (format === 'jpeg') {
+                        ctx.fillStyle = '#FFFFFF';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    }
+                    
+                    ctx.drawImage(img, 0, 0);
+                    
+                    canvas.toBlob((blob) => {
+                        resolve(blob);
+                    }, `image/${format}`, 0.9);
+                };
+
+                img.onerror = () => reject(new Error('Görsel yüklenemedi'));
+                img.src = URL.createObjectURL(file);
+            });
+        }
+
+        async function createZipFromFiles(files) {
+            const zip = new JSZip();
+            
+            for (let file of files) {
+                zip.file(file.name, file);
+            }
+            
+            return await zip.generateAsync({ type: 'blob' });
+        }
+
+        async function convertToJSON(file, sourceFormat) {
+            if (sourceFormat === 'csv') {
+                const csvText = await file.text();
+                const lines = csvText.split('\n');
+                const headers = lines[0].split(',');
+                const jsonData = [];
+                
+                for (let i = 1; i < lines.length; i++) {
+                    if (lines[i].trim()) {
+                        const values = lines[i].split(',');
+                        const obj = {};
+                        headers.forEach((header, index) => {
+                            obj[header.trim()] = values[index] ? values[index].trim() : '';
+                        });
+                        jsonData.push(obj);
+                    }
+                }
+                
+                return new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+            }
+            
+            throw new Error('Bu format JSON\'a dönüştürülemiyor');
+        }
+
+        async function convertToCSV(file, sourceFormat) {
+            if (sourceFormat === 'json') {
+                const jsonText = await file.text();
+                const jsonData = JSON.parse(jsonText);
+                
+                if (!Array.isArray(jsonData) || jsonData.length === 0) {
+                    throw new Error('JSON array formatında olmalı');
+                }
+                
+                const headers = Object.keys(jsonData[0]);
+                let csv = headers.join(',') + '\n';
+                
+                jsonData.forEach(row => {
+                    const values = headers.map(header => {
+                        const value = row[header] || '';
+                        return typeof value === 'string' && value.includes(',') ? `"${value}"` : value;
+                    });
+                    csv += values.join(',') + '\n';
+                });
+                
+                return new Blob([csv], { type: 'text/csv' });
+            }
+            
+            throw new Error('Bu format CSV\'ye dönüştürülemiyor');
+        }
+
+        // Yardımcı fonksiyonlar
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+
+        function showProgress() {
+            progressContainer.style.display = 'block';
+        }
+
+        function hideProgress() {
+            setTimeout(() => {
+                progressContainer.style.display = 'none';
+            }, 2000);
+        }
+
+        function updateProgress(percentage, text) {
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = text;
+        }
+
+        function addResult(fileName, blob) {
+            const url = URL.createObjectURL(blob);
+            const resultHTML = `
+                <div class="result-item">
+                    <div>
+                        <strong>${fileName}</strong>
+                        <br><small style="color: #666;">Boyut: ${formatFileSize(blob.size)}</small>
+                    </div>
+                    <button class="download-btn" onclick="downloadFile('${url}', '${fileName}')">
+                        📥 İndir
+                    </button>
+                </div>
+            `;
+            resultsContainer.innerHTML += resultHTML;
+        }
+
+        function showResults() {
+            resultsContainer.style.display = 'block';
+        }
+
+        function clearResults() {
+            resultsContainer.innerHTML = '';
+            resultsContainer.style.display = 'none';
+        }
+
+        function downloadFile(url, fileName) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        // Format değiştiğinde
+        document.getElementById('toFormat').addEventListener('change', function() {
+            if (selectedFiles.length > 0) {
+                const firstFile = selectedFiles[0];
+                const fromFormat = getFileExtension(firstFile.name).toUpperCase();
+                document.getElementById('fromFormat').textContent = fromFormat;
+            }
+        });
     </script>
 </body>
 </html>

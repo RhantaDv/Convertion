@@ -1,0 +1,14 @@
+{
+  "name": "fileconvert-pro",
+  "version": "1.0.0",
+  "description": "Advanced offline file converter with QR code generator",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site, no build needed'",
+    "start": "vercel dev"
+  },
+  "keywords": ["file-converter", "qr-code", "offline"],
+  "author": "Rhanta",
+  "license": "MIT"
+}
